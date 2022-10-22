@@ -3,7 +3,12 @@ variable "hcloud_token" {
   sensitive = true
 }
 
-variable "linux_image" {
+variable "hcloud_location" {
+  type    = string
+  default = "hel1"
+}
+
+variable "hcloud_linux_image" {
   type    = string
   default = "debian-11"
 }
