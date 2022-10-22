@@ -1,2 +1,4 @@
 .terraform/
 terraform.tfstate*
+.ssh*
+bin/03_kubeadm_join.sh
