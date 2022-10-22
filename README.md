@@ -21,17 +21,28 @@ terraform apply
 Then, access your cluster via SSH and grab the `kubeconfig` file:
 
 ```bash
-ssh root@${$(terraform output controller_ip)//\"/} -o StrictHostKeyChecking=no -i .ssh-${$(terraform workspace show)//\"/}/id_rsa.key "cat /root/.kube/config"
+ssh root@${$(terraform output controller_ip)//\"/} \
+  -o StrictHostKeyChecking=no \
+  -i .ssh-${$(terraform workspace show)//\"/}/id_rsa.key \
+  -c "cat /root/.kube/config"
 ```
 
 ## Customization
 
-The `variables.tf` file contains the configuration which Hetzner server type to use and the number and name for the controller and worker nodes. It also distinguishes these resources into two workspaces: `staging` and `production`.
+### Kubernetes Version
 
-The default configuration is this:
+The default value is `v1.25.2`, change it in `bin/01_install.sh`:
 
-- 1 controller (cx21), 2 worker nodes (cpx21)
-- 1 controller (cx31), 4 worker nodes (cpx31)
+```bash
+KUBERNETES_VERSION=1.25.2
+```
+
+### Cluster Nodes
+
+The `variables.tf` file contains the configuration which Hetzner server type to use and the number and name for the controller and worker nodes. It also distinguishes into two workspaces with different number of nodes:
+
+`staging`: 1 controller (cx21), 2 worker nodes (cpx21)
+`production`: 1 controller (cx31), 3 worker nodes (cpx31)
 
 Edit the [variables.tf](./variables.tf) to change this.
 
