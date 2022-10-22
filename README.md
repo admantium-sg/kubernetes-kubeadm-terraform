@@ -2,6 +2,8 @@
 
 This repository creates a kubeadm cluster on the Hetzner cloud.
 
+The preconfigured components are `etcd`, `containerd` and `calico`.
+
 ## Prerequisites
 
 You need a [Hetzner Cloud](https://accounts.hetzner.com/login) account. Then, get an access token following the [official documentation](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/).
