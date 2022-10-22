@@ -7,7 +7,7 @@ The preconfigured components are `etcd`, `containerd` and `calico`.
 ## Prerequisites
 
 - [Hetzner Cloud account](https://accounts.hetzner.com/login)
-- [Hetzener Cloud access token](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/).
+- [Hetzner Cloud access token](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/).
 - [Terraform CLI](https://developer.hashicorp.com/terraform/downloads)
 
 ## Usage
@@ -46,7 +46,7 @@ KUBERNETES_VERSION=1.25.2
 The `variables.tf` file contains the configuration which Hetzner server type to use and the number and name for the controller and worker nodes. It also distinguishes into two workspaces with different number of nodes:
 
 - `staging`: 1 controller (cx21), 2 worker nodes (cpx21)
-- `production`: 1 controller (cx31), 3 worker nodes (cpx31)
+- `production`: 1 controller (cx31), 4 worker nodes (cpx31)
 
 Edit the [variables.tf](./variables.tf) to change this.
 
