@@ -1,6 +1,6 @@
 # K8S Kubeadm Cluster with Terraform
 
-This repository creates a kubeadm cluster on the Hetzner cloud.
+This repository creates a kubeadm cluster with the Hetzner cloud.
 
 The preconfigured components are `etcd`, `containerd` and `calico`.
 
@@ -14,11 +14,11 @@ The preconfigured components are `etcd`, `containerd` and `calico`.
 
 Export your Hetzner cloud access token as an environment variable, select the `staging` workspace, and start deploying.
 
-```js
+```bash
 export TF_VAR_hcloud_token=SECRET
 
 terraform init
-terraform workspace select staging
+terraform workspace new staging
 terraform apply
 ```
 
@@ -35,10 +35,10 @@ ssh root@${$(terraform output controller_ip)//\"/} \
 
 ### Kubernetes Version
 
-The default value is `v1.25.2`, change it in `bin/01_install.sh`:
+The default value is `v1.26.4`, change it in `bin/01_install.sh`:
 
 ```bash
-KUBERNETES_VERSION=1.25.2
+KUBERNETES_VERSION=1.26.4
 ```
 
 ### Cluster Nodes
