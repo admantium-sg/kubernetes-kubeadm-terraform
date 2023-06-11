@@ -19,7 +19,7 @@ EOF
 systemctl restart containerd
 
 # 02 kubernetes component installation
-export KUBERNETES_VERSION=1.25.2
+export KUBERNETES_VERSION=1.26.5
 
 apt install -y apt-transport-https ca-certificates curl
 curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
